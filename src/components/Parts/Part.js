@@ -3,8 +3,6 @@ import React from 'react';
 import { Card, Image } from 'semantic-ui-react';
 
 const Part = ({ part }) => {
-  console.log(part);
-
   // const part = {
   //   nombre: 'Ryzen 7 3800X',
   //   marca: 'AMD',

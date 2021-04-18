@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import FileBase from 'react-file-base64';
-import { Button, Container, Form } from 'semantic-ui-react';
+import { Button, Container, Form, Select } from 'semantic-ui-react';
 import { createPart } from '../../actions/parts';
+
+import './styles.css';
 
 const AddPart = () => {
   const initialData = {
@@ -14,6 +16,15 @@ const AddPart = () => {
     selectedFile: '',
   };
 
+  const tipoOptions = [
+    { key: 'cpu', text: 'CPU', value: 'cpu' },
+    { key: 'ram', text: 'RAM', value: 'ram' },
+    { key: 'ssd', text: 'SSD', value: 'ssd' },
+    { key: 'hdd', text: 'HDD', value: 'hdd' },
+    { key: 'gpu', text: 'GPU', value: 'gpu' },
+    { key: 'mb', text: 'Motherboard', value: 'mb' },
+    { key: 'ps', text: 'Fuente', value: 'ps' },
+  ];
   const [partData, setPartData] = useState(initialData);
 
   const dispatch = useDispatch();
@@ -52,14 +63,19 @@ const AddPart = () => {
             placeholder='Marca'
           />
         </Form.Field>
+
         <Form.Field inline>
           <label>Tipo</label>
-          <input
+          <Select
+            onChange={(e, data) =>
+              setPartData({ ...partData, tipo: data.value })
+            }
             value={partData.tipo}
-            onChange={(e) => setPartData({ ...partData, tipo: e.target.value })}
+            options={tipoOptions}
             placeholder='Tipo'
           />
         </Form.Field>
+
         <Form.Field inline>
           <label>Interfaz</label>
           <input
@@ -78,7 +94,7 @@ const AddPart = () => {
             placeholder='Tags'
           />
         </Form.Field>
-        <Form.Field label='Imagen' control='button'>
+        <div>
           <FileBase
             type='file'
             multiple={false}
@@ -86,7 +102,7 @@ const AddPart = () => {
               setPartData({ ...partData, selectedFile: base64 })
             }
           />
-        </Form.Field>
+        </div>
 
         <Button positive type='submit'>
           Agregar
