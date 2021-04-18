@@ -3,9 +3,9 @@ import { Container, Grid } from 'semantic-ui-react';
 import Navbar from './components/Navbar/Navbar';
 import { useDispatch } from 'react-redux';
 
-import Parts from './components/Parts/Parts';
 import AddPart from './components/Forms/AddPart';
 import { getParts } from './actions/parts';
+import { Parts } from './components/Parts/Parts';
 
 const App = () => {
   const dispatch = useDispatch();
