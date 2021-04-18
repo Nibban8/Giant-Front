@@ -12,18 +12,20 @@ const AddPart = () => {
     marca: '',
     tipo: '',
     interfaz: '',
-    tags: '',
+    descripcion: '',
     selectedFile: '',
+    precio: '',
   };
 
   const tipoOptions = [
     { key: 'cpu', text: 'CPU', value: 'cpu' },
+    { key: 'gpu', text: 'GPU', value: 'gpu' },
     { key: 'ram', text: 'RAM', value: 'ram' },
     { key: 'ssd', text: 'SSD', value: 'ssd' },
     { key: 'hdd', text: 'HDD', value: 'hdd' },
-    { key: 'gpu', text: 'GPU', value: 'gpu' },
     { key: 'mb', text: 'Motherboard', value: 'mb' },
     { key: 'ps', text: 'Fuente', value: 'ps' },
+    { key: 'case', text: 'Gabinete', value: 'case' },
   ];
   const [partData, setPartData] = useState(initialData);
 
@@ -65,6 +67,17 @@ const AddPart = () => {
         </Form.Field>
 
         <Form.Field inline>
+          <label>Precio</label>
+          <input
+            value={partData.precio}
+            onChange={(e) =>
+              setPartData({ ...partData, precio: e.target.value })
+            }
+            placeholder='Precio'
+          />
+        </Form.Field>
+
+        <Form.Field inline>
           <label>Tipo</label>
           <Select
             onChange={(e, data) =>
@@ -87,11 +100,13 @@ const AddPart = () => {
           />
         </Form.Field>
         <Form.Field inline>
-          <label>Tags</label>
+          <label>Descripcion</label>
           <input
-            value={partData.tags}
-            onChange={(e) => setPartData({ ...partData, tags: e.target.value })}
-            placeholder='Tags'
+            value={partData.descripcion}
+            onChange={(e) =>
+              setPartData({ ...partData, descripcion: e.target.value })
+            }
+            placeholder='Descripcion'
           />
         </Form.Field>
         <div>
