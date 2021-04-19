@@ -22,6 +22,8 @@ const Part = ({ part }) => {
         </Card.Meta>
         <Card.Description>{part.tags}</Card.Description>
       </Card.Content>
+      <Card.Content extra>Precio : {part.precio}</Card.Content>
+      <Card.Content extra>Interfaz : {part.interfaz}</Card.Content>
     </Card>
   );
 };
