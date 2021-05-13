@@ -43,9 +43,9 @@ const AddPart = () => {
   };
 
   return (
-    <Container>
+    <Container className='from'>
       <Form onSubmit={handleSubmit}>
-        <Form.Field inline>
+        <Form.Field>
           <label>Nombre</label>
           <input
             value={partData.nombre}
@@ -55,7 +55,7 @@ const AddPart = () => {
             placeholder='Nombre'
           />
         </Form.Field>
-        <Form.Field inline>
+        <Form.Field>
           <label>Marca</label>
           <input
             value={partData.marca}
@@ -66,7 +66,7 @@ const AddPart = () => {
           />
         </Form.Field>
 
-        <Form.Field inline>
+        <Form.Field>
           <label>Precio</label>
           <input
             value={partData.precio}
@@ -77,7 +77,7 @@ const AddPart = () => {
           />
         </Form.Field>
 
-        <Form.Field inline>
+        <Form.Field>
           <label>Tipo</label>
           <Select
             onChange={(e, data) =>
@@ -89,7 +89,7 @@ const AddPart = () => {
           />
         </Form.Field>
 
-        <Form.Field inline>
+        <Form.Field>
           <label>Interfaz</label>
           <input
             value={partData.interfaz}
@@ -99,7 +99,7 @@ const AddPart = () => {
             placeholder='Interfaz'
           />
         </Form.Field>
-        <Form.Field inline>
+        <Form.Field>
           <label>Descripcion</label>
           <input
             value={partData.descripcion}

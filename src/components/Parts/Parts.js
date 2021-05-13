@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { CardGroup, Loader } from 'semantic-ui-react';
+import { Card, Loader } from 'semantic-ui-react';
 
 import Part from './Part';
 
@@ -10,10 +10,10 @@ export const Parts = () => {
   return !parts.length ? (
     <Loader />
   ) : (
-    <CardGroup>
+    <Card.Group centered doubling>
       {parts.map((part) => {
         return <Part part={part} />;
       })}
-    </CardGroup>
+    </Card.Group>
   );
 };
