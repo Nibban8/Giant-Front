@@ -3,3 +3,61 @@
   padding: 5rem;
   border-radius: 5px;
 }
+
+#Titulo{
+  
+position: absolute;
+width: 529px;
+height: 137px;
+left: 10%;
+top: 176px;
+
+font-family: Press Start 2P;
+font-style: normal;
+font-weight: normal;
+font-size: 48px;
+line-height: 48px;
+
+color: #94e2fa;
+font-family: 'Press Start 2P', cursive;
+}
+
+#subTitulo
+{
+  position: absolute;
+width: 403px;
+height: 135px;
+left: 10%;
+top: 313px;
+
+font-family: Oxanium;
+font-style: normal;
+font-weight: normal;
+font-size: 36px;
+line-height: 45px;
+
+color: #FFFFFF;
+
+}
+#gratis{
+  color: #94e2fa;
+  font-family: Oxanium;
+font-style: normal;
+font-weight: normal;
+}
+
+#boton{
+  font-family: Oxanium;
+font-style: italic;
+font-weight: bold;
+font-size: 36px;
+line-height: 50%;
+
+position: absolute;
+width: 470px;
+height: 80px;
+left: 10%;
+top: 575px;
+
+
+}
