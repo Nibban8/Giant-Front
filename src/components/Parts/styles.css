@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.cards {
+  margin-right: 4rem !important;
+}
+
+@media (max-width: 768px) {
+  .cards {
+    margin-right: 0 !important;
+  }
+}
