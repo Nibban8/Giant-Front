@@ -6,6 +6,7 @@ import './styles.css';
 export default function Agregar() {
   return (
     <>
+      <h1>Agregar componentes</h1>
       <AddPart />
     </>
   );

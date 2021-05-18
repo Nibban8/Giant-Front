@@ -1,14 +1,12 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+
 import { Card, Loader } from 'semantic-ui-react';
 
 import Part from './Part';
 
 import './styles.css';
 
-export const Parts = () => {
-  const parts = useSelector((state) => state.parts);
-
+export const Parts = (parts) => {
   return !parts.length ? (
     <Loader />
   ) : (
