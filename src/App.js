@@ -1,24 +1,21 @@
-import React, { useEffect } from 'react';
-
+import React from 'react';
 import Navbar from './components/Navbar/Navbar';
-import { useDispatch } from 'react-redux';
+
 import Home from './components/Pages/Home';
 import Quote from './components/Pages/Quote';
 import Contact from './components/Pages/Contact';
 import Agregar from './components/Pages/Agregar';
-
-import { getParts } from './actions/parts';
 import { Router, Route, Redirect } from 'react-router';
 import history from './history';
 
 import './App.css';
 
 const App = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getParts());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getParts());
+  // }, [dispatch]);
 
   return (
     <div>
