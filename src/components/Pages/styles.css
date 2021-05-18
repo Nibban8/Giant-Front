@@ -61,3 +61,14 @@ top: 80%;
 
 
 }
+#pasos-compra{
+  position: absolute;
+  left: 25%;
+  top: 4%;
+  
+}
+#placeholder{
+  position: absolute;
+  left: 47%;
+  top: 20%;
+}
