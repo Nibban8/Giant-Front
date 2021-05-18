@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import FileBase from 'react-file-base64';
 import { Button, Container, Form, Select } from 'semantic-ui-react';
-import { createPart } from '../../actions/parts';
+import { db } from '../../firebase';
 
 import './styles.css';
 
@@ -27,13 +26,15 @@ const AddPart = () => {
     { key: 'ps', text: 'Fuente', value: 'ps' },
     { key: 'case', text: 'Gabinete', value: 'case' },
   ];
+
   const [partData, setPartData] = useState(initialData);
 
-  const dispatch = useDispatch();
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(createPart(partData));
+
+    console.log(partData);
+    await db.collection('partes').doc().set(partData);
+
     handleClear(e);
   };
 
