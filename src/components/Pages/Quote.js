@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Parts } from '.././Parts/Parts';
-import { Header, Grid, Button, Icon } from 'semantic-ui-react';
+//import { Parts } from '.././Parts/Parts';
+//import { Header, Grid, Button, Icon } from 'semantic-ui-react';
 
 export default class Quote extends Component {
   render() {
