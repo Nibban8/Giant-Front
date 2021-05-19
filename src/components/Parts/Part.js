@@ -14,16 +14,16 @@ const Part = ({ part }) => {
   // };
   return (
     <Card>
-      <Image src={part.selectedFile} wrapped ui={false} />
+      <Image className='part-img' src={part.selectedFile} />
       <Card.Content>
-        <Card.Header>{part.nombre}</Card.Header>
+        <Card.Header className='name'>{part.nombre}</Card.Header>
         <Card.Meta>
           <span>{part.marca}</span>
         </Card.Meta>
-        <Card.Description>{part.tags}</Card.Description>
       </Card.Content>
-      <Card.Content extra>Precio : {part.precio}</Card.Content>
-      <Card.Content extra>Interfaz : {part.interfaz}</Card.Content>
+      <Card.Content className='price' extra>
+        $ {part.precio}
+      </Card.Content>
     </Card>
   );
 };

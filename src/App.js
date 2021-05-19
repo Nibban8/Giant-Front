@@ -8,6 +8,8 @@ import Agregar from './components/Pages/Agregar';
 import { Router, Route, Redirect } from 'react-router';
 import history from './history';
 
+import Ensamble from './components/Forms/Ensamble';
+
 import './App.css';
 
 const App = () => {
@@ -27,6 +29,7 @@ const App = () => {
           <Route path='/cotizar' exact component={Quote} />
           <Route path='/agregar' exact component={Agregar} />
           <Route path='/contacto' exact component={Contact} />
+          <Route path='/ensamble' exact component={Ensamble} />
         </div>
       </Router>
     </div>

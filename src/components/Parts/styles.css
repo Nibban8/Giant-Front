@@ -7,8 +7,51 @@
   margin-right: 4rem !important;
 }
 
+.container {
+  background-color: rgba(225, 225, 225, 0.4);
+}
+
+.part-img {
+  overflow: hidden;
+  max-height: 250px;
+}
+
+.tab {
+  background: none !important;
+  border: none !important;
+}
+
+.card {
+  height: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  flex-grow: inherit !important;
+}
+
+.name {
+  font-size: 16px !important;
+}
+.price {
+  color: black !important;
+  font-size: 20px !important;
+  font-weight: 900;
+}
+
 @media (max-width: 768px) {
   .cards {
     margin-right: 0 !important;
+  }
+
+  .card {
+    height: 25rem;
+  }
+
+  .container {
+    margin-bottom: 5rem;
   }
 }

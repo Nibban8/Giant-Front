@@ -1,19 +1,21 @@
 import React from 'react';
 
-import { Card, Loader } from 'semantic-ui-react';
+import { Card, Loader, Grid } from 'semantic-ui-react';
 
 import Part from './Part';
 
 import './styles.css';
 
-export const Parts = (parts) => {
+const Parts = ({ parts }) => {
   return !parts.length ? (
     <Loader />
   ) : (
-    <Card.Group className='cards' centered doubling>
+    <Grid doubling columns={3} className='cards' centered>
       {parts.map((part) => {
         return <Part part={part} />;
       })}
-    </Card.Group>
+    </Grid>
   );
 };
+
+export default Parts;
