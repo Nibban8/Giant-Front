@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Segment,Placeholder, Grid } from 'semantic-ui-react'
+import { Segment, Grid } from 'semantic-ui-react'
 import ViewSDKClient from './SettingPdf';
 export default class Pdf extends Component {
   componentDidMount() {

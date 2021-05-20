@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Card, Loader, Grid } from 'semantic-ui-react';
+import {  Loader, Grid } from 'semantic-ui-react';
 
 import Part from './Part';
 
