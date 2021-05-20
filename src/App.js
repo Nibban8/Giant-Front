@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Navbar from './components/Navbar/Navbar';
 
 import Home from './components/Pages/Home';
@@ -20,10 +20,10 @@ const App = () => {
   // }, [dispatch]);
 
   return (
-    <div>
+    <Fragment>
       <Router history={history}>
         <Navbar />
-        <div className='main backgroundimages'>
+        <div className="main">
           <Route path='/' exact component={() => <Redirect to='/inicio' />} />
           <Route path='/inicio' exact component={Home} />
           <Route path='/cotizar' exact component={Quote} />
@@ -32,7 +32,7 @@ const App = () => {
           <Route path='/ensamble' exact component={Ensamble} />
         </div>
       </Router>
-    </div>
+    </Fragment>
   );
 };
 
