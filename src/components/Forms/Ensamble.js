@@ -69,7 +69,7 @@ export default function Ensamble() {
   const resumen = {
     menuItem: 'Resumen',
     render: () => (
-      <Tab.Pane>
+      <Tab.Pane style={{ color: 'white' }}>
         <h1>Resumen del pedido</h1>
         <div>{ensamble.cpu.nombre}</div>
         <div>{ensamble.mb.nombre}</div>
