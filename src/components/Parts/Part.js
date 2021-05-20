@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Card, Image } from 'semantic-ui-react';
+import { Card, Button } from 'semantic-ui-react';
 
-const Part = ({ part }) => {
+const Part = ({ part, handleSelect, selected }) => {
   // const part = {
   //   nombre: 'Ryzen 7 3800X',
   //   marca: 'AMD',
@@ -12,9 +12,16 @@ const Part = ({ part }) => {
   //   selectedFile:
   //     'https://www.xtremetecpc.com/wp-content/uploads/2019/11/7-3800X.jpg',
   // };
+
   return (
     <Card>
-      <Image className='part-img' src={part.selectedFile} />
+      <img
+        className='part-img'
+        src={part.selectedFile}
+        alt={part.nombre}
+        width='250'
+        height='250'
+      />
       <Card.Content>
         <Card.Header className='name'>{part.nombre}</Card.Header>
         <Card.Meta>
@@ -24,6 +31,22 @@ const Part = ({ part }) => {
       <Card.Content className='price' extra>
         $ {part.precio}
       </Card.Content>
+
+      {selected ? (
+        <Button style={{ marginTop: 'auto' }} secondary>
+          SELECCIONADO
+        </Button>
+      ) : (
+        <Button
+          onClick={() => {
+            handleSelect(part);
+          }}
+          style={{ marginTop: 'auto' }}
+          primary
+        >
+          SELECCIONAR
+        </Button>
+      )}
     </Card>
   );
 };

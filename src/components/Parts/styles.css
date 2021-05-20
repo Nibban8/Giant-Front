@@ -8,12 +8,13 @@
 }
 
 .container {
-  background-color: rgba(225, 225, 225, 0.4);
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
 }
 
 .part-img {
   overflow: hidden;
-  max-height: 250px;
+  width: -webkit-fill-available;
 }
 
 .tab {
