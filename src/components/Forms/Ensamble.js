@@ -5,16 +5,42 @@ import { db } from '../../firebase';
 import Parts from '../Parts/Parts';
 
 export default function Ensamble() {
-  // la funcion .onSnapshot ofrece datos en tiempo real
-  // si la base de datos cambia, hace fetch de forma automatica
+  const [ensamble, setEnsamble] = useState({
+    cpu: '',
+    mb: '',
+    ram: '',
+    gpu: '',
+    hdd: '',
+    ssd: '',
+  });
 
-  //   const getParts = async () => {
-  //     db.collection('partes').onSnapshot((querySnapshot) => {
-  //       querySnapshot.forEach((doc) => {
-  //         console.log(doc.data());
-  //       });
-  //     });
-  //   };
+  const handleSelect = (part) => {
+    let res = {};
+    switch (part.tipo) {
+      case 'cpu':
+        res = { cpu: part };
+        break;
+      case 'mb':
+        res = { mb: part };
+        break;
+      case 'ram':
+        res = { ram: part };
+        break;
+      case 'gpu':
+        res = { gpu: part };
+        break;
+      case 'hdd':
+        res = { hdd: part };
+        break;
+      case 'ssd':
+        res = { ssd: part };
+        break;
+      default:
+        break;
+    }
+
+    setEnsamble({ ...ensamble, ...res });
+  };
 
   const tipos = [
     { nombre: 'Procesador', valor: 'cpu' },
@@ -30,11 +56,30 @@ export default function Ensamble() {
       menuItem: tipo.nombre,
       render: () => (
         <Tab.Pane>
-          <Parts parts={partes.filter((part) => part.tipo === tipo.valor)} />
+          <Parts
+            selected={Object.values(ensamble)}
+            handleSelect={handleSelect}
+            parts={partes.filter((part) => part.tipo === tipo.valor)}
+          />
         </Tab.Pane>
       ),
     };
   });
+
+  const resumen = {
+    menuItem: 'Resumen',
+    render: () => (
+      <Tab.Pane>
+        <h1>Resumen del pedido</h1>
+        <div>{ensamble.cpu.nombre}</div>
+        <div>{ensamble.mb.nombre}</div>
+        <div>{ensamble.ram.nombre}</div>
+        <div>{ensamble.gpu.nombre}</div>
+        <div>{ensamble.hdd.nombre}</div>
+        <div>{ensamble.ssd.nombre}</div>
+      </Tab.Pane>
+    ),
+  };
 
   const [partes, setPartes] = useState([]);
 
@@ -42,11 +87,19 @@ export default function Ensamble() {
     const querySnapshot = await db.collection('partes').get();
     const docs = [];
     querySnapshot.forEach((doc) => {
-      docs.push({ ...doc.data(), id: doc.id });
+      docs.push({ ...doc.data(), id: doc.id, selected: false });
     });
-    console.log(docs);
     setPartes(docs);
   };
+
+  useEffect(() => {
+    getParts();
+  }, []);
+
+  useEffect(() => {
+    console.log(ensamble);
+    //console.log(panes);
+  }, [ensamble]);
 
   useEffect(() => {
     getParts();
@@ -56,14 +109,22 @@ export default function Ensamble() {
     <Container className='content'>
       <Tab
         menu={{
-          color: 'blue',
           inverted: true,
           fluid: true,
-          vertical: true,
-          tabular: 'right',
         }}
-        panes={panes}
+        panes={panes.concat(resumen)}
       />
     </Container>
   );
 }
+
+// la funcion .onSnapshot ofrece datos en tiempo real
+// si la base de datos cambia, hace fetch de forma automatica
+
+//   const getParts = async () => {
+//     db.collection('partes').onSnapshot((querySnapshot) => {
+//       querySnapshot.forEach((doc) => {
+//         console.log(doc.data());
+//       });
+//     });
+//   };
