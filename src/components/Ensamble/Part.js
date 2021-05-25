@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { Card, Button } from 'semantic-ui-react';
+import { EnsambleContext } from './EnsambleContext';
 
-const Part = ({ part, handleSelect, selected }) => {
+const Part = ({ part, selected }) => {
   // const part = {
   //   nombre: 'Ryzen 7 3800X',
   //   marca: 'AMD',
@@ -12,6 +13,35 @@ const Part = ({ part, handleSelect, selected }) => {
   //   selectedFile:
   //     'https://www.xtremetecpc.com/wp-content/uploads/2019/11/7-3800X.jpg',
   // };
+
+  const { ensamble, setEnsamble } = useContext(EnsambleContext);
+
+  const handleSelect = (part) => {
+    let res = {};
+    switch (part.tipo) {
+      case 'cpu':
+        res = { cpu: part };
+        break;
+      case 'mb':
+        res = { mb: part };
+        break;
+      case 'ram':
+        res = { ram: part };
+        break;
+      case 'gpu':
+        res = { gpu: part };
+        break;
+      case 'hdd':
+        res = { hdd: part };
+        break;
+      case 'ssd':
+        res = { ssd: part };
+        break;
+      default:
+        break;
+    }
+    setEnsamble({ ...ensamble, ...res });
+  };
 
   return (
     <Card>

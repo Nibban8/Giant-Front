@@ -23,11 +23,16 @@
 }
 
 .card {
-  height: 30rem;
+  height: 25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+
+.card img {
+  width: auto;
 }
 
 .content {
