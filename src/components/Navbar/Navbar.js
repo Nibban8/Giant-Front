@@ -58,7 +58,7 @@ export default function Navbar() {
           </Link>
         </li>
 
-        <li className='nav-item'>
+        {/* <li className='nav-item'>
           <Link to={'/cotizar'}>
             <span className='nav-link'>
               <svg
@@ -80,7 +80,7 @@ export default function Navbar() {
               <span className='link-text'>Cotizar</span>
             </span>
           </Link>
-        </li>
+        </li> */}
 
         <li className='nav-item'>
           <Link to={'/ensamble'}>
