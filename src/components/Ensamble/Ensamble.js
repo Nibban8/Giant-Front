@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Tab } from 'semantic-ui-react';
 import { db } from '../../firebase';
+import { EnsambleContext } from './EnsambleContext';
 
-import Parts from '../Parts/Parts';
+import Parts from './Parts';
 
 export default function Ensamble() {
   const [ensamble, setEnsamble] = useState({
@@ -13,34 +14,6 @@ export default function Ensamble() {
     hdd: '',
     ssd: '',
   });
-
-  const handleSelect = (part) => {
-    let res = {};
-    switch (part.tipo) {
-      case 'cpu':
-        res = { cpu: part };
-        break;
-      case 'mb':
-        res = { mb: part };
-        break;
-      case 'ram':
-        res = { ram: part };
-        break;
-      case 'gpu':
-        res = { gpu: part };
-        break;
-      case 'hdd':
-        res = { hdd: part };
-        break;
-      case 'ssd':
-        res = { ssd: part };
-        break;
-      default:
-        break;
-    }
-
-    setEnsamble({ ...ensamble, ...res });
-  };
 
   const tipos = [
     { nombre: 'Procesador', valor: 'cpu' },
@@ -56,11 +29,7 @@ export default function Ensamble() {
       menuItem: tipo.nombre,
       render: () => (
         <Tab.Pane>
-          <Parts
-            selected={Object.values(ensamble)}
-            handleSelect={handleSelect}
-            parts={partes.filter((part) => part.tipo === tipo.valor)}
-          />
+          <Parts parts={partes.filter((part) => part.tipo === tipo.valor)} />
         </Tab.Pane>
       ),
     };
@@ -107,13 +76,15 @@ export default function Ensamble() {
 
   return (
     <Container className='content'>
-      <Tab
-        menu={{
-          inverted: true,
-          fluid: true,
-        }}
-        panes={panes.concat(resumen)}
-      />
+      <EnsambleContext.Provider value={{ ensamble, setEnsamble }}>
+        <Tab
+          menu={{
+            inverted: true,
+            fluid: true,
+          }}
+          panes={panes.concat(resumen)}
+        />
+      </EnsambleContext.Provider>
     </Container>
   );
 }
