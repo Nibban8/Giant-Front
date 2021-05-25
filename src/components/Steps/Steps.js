@@ -5,22 +5,22 @@ export default class Steps extends Component {
     render() {
         return (
           <Step.Group widths={3}>
-          <Step>
-            <Icon name='truck' />
+          <Step active id='stepQuote'>
+            <Icon name='computer' />
             <Step.Content>
-              <Step.Title>Shipping</Step.Title>
+              <Step.Title>Cotizar</Step.Title>
             </Step.Content>
           </Step>
-          <Step active>
-            <Icon name='credit card' />
+          <Step id='stepPDF'>
+            <Icon name='file pdf' />
             <Step.Content>
-              <Step.Title>Billing</Step.Title>
+              <Step.Title>Resumen de pedido</Step.Title>
             </Step.Content>
           </Step>
-          <Step disabled>
+          <Step id='stepPay'>
             <Icon name='info' />
             <Step.Content>
-              <Step.Title>Confirm Order</Step.Title>
+              <Step.Title>Opciones de pago</Step.Title>
             </Step.Content>
           </Step>
         </Step.Group>
