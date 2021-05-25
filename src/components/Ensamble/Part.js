@@ -55,7 +55,7 @@ const Part = ({ part, selected }) => {
       <Card.Content>
         <Card.Header className='name'>{part.nombre}</Card.Header>
         <Card.Meta>
-          <span>{part.marca}</span>
+          <span>{part.descripcion}</span>
         </Card.Meta>
       </Card.Content>
       <Card.Content className='price' extra>
