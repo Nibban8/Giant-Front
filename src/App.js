@@ -5,6 +5,7 @@ import Home from './components/Pages/Home';
 import Quote from './components/Pages/Quote';
 import Contact from './components/Pages/Contact';
 import Agregar from './components/Pages/Agregar';
+import Finalizada from './components/Pages/Finalizada';
 import { Router, Route, Redirect } from 'react-router';
 import history from './history';
 
@@ -30,6 +31,7 @@ const App = () => {
           <Route path='/agregar' exact component={Agregar} />
           <Route path='/contacto' exact component={Contact} />
           <Route path='/ensamble' exact component={Ensamble} />
+          <Route path='/finalizada' exact component={Finalizada} />
         </div>
       </Router>
     </Fragment>

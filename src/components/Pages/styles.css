@@ -21,6 +21,30 @@ color: #94e2fa;
 font-family: 'Press Start 2P', cursive;
 }
 
+#Encabezado{
+text-align: center;
+  font-family: 'Press Start 2P', cursive;
+
+font-style: normal;
+font-weight: normal;
+font-size: 40px;
+line-height: 45px;
+
+color: #FFFFFF;
+
+}
+
+#mensaje_correo{
+  font-family: Oxanium;
+font-style: normal;
+font-weight: normal;
+font-size: 36px;
+line-height: 45px;
+
+color: #FFFFFF;
+}
+
+
 #subTitulo
 {
   position: absolute;
@@ -57,4 +81,8 @@ width: 470px;
 height: 80px;
 left: 10%;
 top: 80%;
+}
+
+#link{
+  color: #EF27A6;
 }
