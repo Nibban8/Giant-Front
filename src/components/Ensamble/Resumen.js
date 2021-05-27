@@ -33,15 +33,12 @@ export default function Resumen() {
   const handlePay = async (event) => {
     const stripe = await stripePromise;
 
-    let items = [];
-
     let data = {
       equipo: [],
     };
 
     Object.values(ensamble).forEach((part) => {
       if (part.id) {
-        //items.push(part.precio);
         data.equipo.push(part.id);
       }
     });
