@@ -28,6 +28,7 @@ export default class Home extends Component {
             PROBAR AHORA
             <Icon className='right arrow' />
           </Button>
+          
       </Grid>
       </>
     );

@@ -8,7 +8,7 @@ export default function Navbar() {
     <nav className='navbar'>
       <ul className='navbar-nav'>
         <li className='logo'>
-          <Link to='/'>
+          <Link to='/inicio'>
             <img alt='logo' src={logo} />
           </Link>
         </li>
@@ -84,8 +84,10 @@ export default function Navbar() {
           </Link>
         </li>
 
+        
+
         <li className='nav-item'>
-          <Link to={'/agregar'}>
+          <Link to={'/login'}>
             <span className='nav-link'>
               <svg
                 aria-hidden='true'
@@ -103,7 +105,7 @@ export default function Navbar() {
                 ></path>
               </svg>
 
-              <span className='link-text'>Agregar</span>
+              <span className='link-text'>ADMIN</span>
             </span>
           </Link>
         </li>
