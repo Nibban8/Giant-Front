@@ -44,13 +44,16 @@ export default function Resumen() {
     });
 
     // Call your backend to create the Checkout Session
-    const response = await fetch('http://localhost:5000/checkout', {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+    const response = await fetch(
+      'https://giant-ensambles.herokuapp.com/checkout',
+      {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
 
     const session = await response.json();
 
@@ -58,6 +61,8 @@ export default function Resumen() {
     const result = await stripe.redirectToCheckout({
       sessionId: session.id,
     });
+
+    console.log(session);
 
     if (result.error) {
       // If `redirectToCheckout` fails due to a browser or network

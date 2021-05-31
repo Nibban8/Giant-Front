@@ -1,54 +1,60 @@
-import React, { useRef, useState } from "react"
-import { Form, Button, Card, Alert } from "react-bootstrap"
-import { useAuth } from "./AuthContext"
-import {  useHistory } from "react-router-dom"
+import React, { useRef, useState } from 'react';
+import { Form, Button, Card, Alert } from 'react-bootstrap';
+import { useAuth } from './AuthContext';
+import { useHistory } from 'react-router-dom';
 
 export default function Login() {
-  const emailRef = useRef()
-  const passwordRef = useRef()
-  const  {login}  = useAuth()
-  const [error, setError] = useState("")
-  const [loading, setLoading] = useState(false)
-  const history = useHistory()
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const { login } = useAuth();
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
   async function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
 
     try {
-      setError("")
-      setLoading(true)
-      await login(emailRef.current.value, passwordRef.current.value)
-      history.push("/agregar")
+      setError('');
+      setLoading(true);
+      await login(emailRef.current.value, passwordRef.current.value);
+      history.push('/admin');
     } catch {
-      setError("Failed to log in")
+      setError('Failed to log in');
     }
 
-    setLoading(false)
+    setLoading(false);
   }
 
   return (
     <>
-      <Card>
+      <Card
+        style={{
+          backgroundColor: 'rgba(225,225,225,0.8)',
+          maxWidth: '300px',
+          maxHeight: '200px',
+          margin: 'auto',
+          marginTop: '10%',
+        }}
+      >
         <Card.Body>
-          <h2 className="text-center mb-4">Log In</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
+          <h2 className='text-center mb-4'>Log In</h2>
+          {error && <Alert variant='danger'>{error}</Alert>}
           <Form onSubmit={handleSubmit}>
-            <Form.Group id="email">
+            <Form.Group id='email'>
               <Form.Label>Email</Form.Label>
-              <Form.Control type="email" ref={emailRef} required />
+              <Form.Control type='email' ref={emailRef} required />
             </Form.Group>
-            <Form.Group id="password">
+            <Form.Group id='password'>
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" ref={passwordRef} required />
+              <Form.Control type='password' ref={passwordRef} required />
             </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit">
+            <Button disabled={loading} className='w-100' type='submit'>
               Log In
             </Button>
           </Form>
-          
         </Card.Body>
       </Card>
-      
     </>
-  )
+  );
 }

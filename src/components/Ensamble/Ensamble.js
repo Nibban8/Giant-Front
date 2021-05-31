@@ -67,7 +67,6 @@ export default function Ensamble() {
     elementTab = document.getElementsByClassName('active item');
     elementQuote = document.getElementById('stepQuote');
     elementPDF = document.getElementById('stepPDF');
-    console.log(elementTab);
     if (elementTab[0].text === 'Resumen') {
       if (elementPDF.classList.contains('active')) {
         return 0;
