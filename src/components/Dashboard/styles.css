@@ -1,0 +1,17 @@
+.parte {
+  padding: 1rem;
+  background-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.segment {
+  background-color: rgba(225, 225, 225, 0.7) !important;
+}
+
+h5 {
+  margin: 0;
+}
+
+.pedido {
+  padding: 1rem;
+}
