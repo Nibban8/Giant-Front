@@ -8,7 +8,7 @@ import Finalizada from './components/Pages/Finalizada';
 import { AuthProvider } from './AuthContext';
 import { Router, Route, Redirect } from 'react-router';
 import history from './history';
-import Dashboard from './components/Dashboard/Dashboard';
+//import Dashboard from './components/Dashboard/Dashboard';
 import Admin from './components/Pages/Admin';
 import Pedidos from './components/Dashboard/Pedidos';
 import Inventario from './components/Dashboard/Inventario';

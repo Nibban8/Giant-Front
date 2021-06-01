@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import { Button } from 'semantic-ui-react';
 
 export default function Contact() {
-  const [product, setproduct] = useState({
-    name: 'React from FB',
-    price: 10,
-    productBy: 'facebook',
-  });
+  const data = {
+    equipo: [
+      '4KpS17pxcuJ2HTfFZlE9',
+      '6H0QCmHsKMxv6C2Hk5dN',
+      'AWZEV4Twaeqb5vKZzStn',
+    ],
+  };
 
   const makePayment = (token) => {
     const body = {
       token,
-      product,
+      data,
     };
 
     const headers = {
@@ -39,9 +41,10 @@ export default function Contact() {
       stripeKey='pk_test_51IujvAIqOpiH1XDDENLMzBB13hlBmoIdSsfU9fRAqGl3vbRtXRSp6wUzSCbtzot9CLdrEpRUwzJueomQQrutCaX00008spOYCP'
       token={makePayment}
       name='Dame dineros'
-      amount={product.price * 100}
+      //  amount={product.price * 100}
       currency='MXN'
       shippingAddress
+      bitcoin
     >
       <Button>Dame muchos dineros</Button>
     </StripeCheckout>
