@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Inventario from './Inventario';
-import { Grid, Segment } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 import Pedidos from './Pedidos';
 
 export default function Dashboard() {
