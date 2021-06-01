@@ -25,7 +25,7 @@ export default function Pedidos() {
   return (
     <div>
       {orders.map((order) => (
-        <Segment padded>
+        <Segment padded='very'>
           <h5>ID :{order.id}</h5>
 
           <Grid columns={2}>

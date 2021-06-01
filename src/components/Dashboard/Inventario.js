@@ -5,6 +5,8 @@ import ListPart from './ListPart';
 
 import './styles.css';
 
+import Alertas from '../Administrador/Alertas';
+
 export default function Inventario() {
   const [partes, setPartes] = useState([]);
 
@@ -30,6 +32,7 @@ export default function Inventario() {
 
   return (
     <>
+      <Alertas />
       <Segment>
         <List divided verticalAlign='middle'>
           <List.Item>
@@ -57,7 +60,7 @@ export default function Inventario() {
                     Cantidad : {parte.cantidad}
                   </Label>
                 </List.Content>
-                <List.Content floated='right'>
+                <List.Content key={parte.nombre} floated='right'>
                   <Label size='large'>Precio : ${parte.precio}</Label>
                 </List.Content>
 
