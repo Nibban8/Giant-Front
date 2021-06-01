@@ -3,49 +3,49 @@ import StripeCheckout from 'react-stripe-checkout';
 import { Button } from 'semantic-ui-react';
 
 export default function Contact() {
-  const [product, setproduct] = useState({
-    name: 'React from FB',
-    price: 10,
-    productBy: 'facebook',
-  });
+	const [product] = useState({
+		name: 'React from FB',
+		price: 10,
+		productBy: 'facebook',
+	});
 
-  const makePayment = (token) => {
-    const body = {
-      token,
-      product,
-    };
+	const makePayment = (token) => {
+		const body = {
+			token,
+			product,
+		};
 
-    const headers = {
-      'Content-Type': 'application/json',
-    };
+		const headers = {
+			'Content-Type': 'application/json',
+		};
 
-    // https://giant-ensambles.herokuapp.com/payment
+		// https://giant-ensambles.herokuapp.com/payment
 
-    return fetch(`http://localhost:5000/payment`, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify(body),
-    })
-      .then((response) => {
-        console.log('RESPONSE ', response);
-        const { status } = response;
-        console.log('STATUS ', status);
-      })
-      .catch((err) => console.log(err));
-  };
+		return fetch(`http://localhost:5000/payment`, {
+			method: 'POST',
+			headers,
+			body: JSON.stringify(body),
+		})
+			.then((response) => {
+				console.log('RESPONSE ', response);
+				const { status } = response;
+				console.log('STATUS ', status);
+			})
+			.catch((err) => console.log(err));
+	};
 
-  return (
-    <StripeCheckout
-      stripeKey='pk_test_51IujvAIqOpiH1XDDENLMzBB13hlBmoIdSsfU9fRAqGl3vbRtXRSp6wUzSCbtzot9CLdrEpRUwzJueomQQrutCaX00008spOYCP'
-      token={makePayment}
-      name='Dame dineros'
-      amount={product.price * 100}
-      currency='MXN'
-      shippingAddress
-    >
-      <Button>Dame muchos dineros</Button>
-    </StripeCheckout>
-  );
+	return (
+		<StripeCheckout
+			stripeKey='pk_test_51IujvAIqOpiH1XDDENLMzBB13hlBmoIdSsfU9fRAqGl3vbRtXRSp6wUzSCbtzot9CLdrEpRUwzJueomQQrutCaX00008spOYCP'
+			token={makePayment}
+			name='Dame dineros'
+			amount={product.price * 100}
+			currency='MXN'
+			shippingAddress
+		>
+			<Button>Dame muchos dineros</Button>
+		</StripeCheckout>
+	);
 }
 
 // import React, { Component } from 'react';
