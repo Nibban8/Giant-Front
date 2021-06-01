@@ -1,15 +1,11 @@
 import React, { useContext } from 'react';
-
 import { Loader, Grid } from 'semantic-ui-react';
-
 import Part from './Part';
-
 import './styles.css';
 import { EnsambleContext } from './EnsambleContext';
 
 const Parts = ({ parts }) => {
 	const { ensamble } = useContext(EnsambleContext);
-	console.log(parts);
 	return !parts.length ? (
 		<Loader />
 	) : (
