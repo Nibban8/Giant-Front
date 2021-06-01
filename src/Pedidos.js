@@ -1,13 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Input,
-  List,
-  Segment,
-  Button,
-  Icon,
-  Label,
-  Grid,
-} from 'semantic-ui-react';
+import { List, Segment, Grid } from 'semantic-ui-react';
 import { db } from './firebase';
 
 export default function Pedidos() {
@@ -25,7 +17,7 @@ export default function Pedidos() {
 
   useEffect(() => {
     getOrders();
-    console.log(orders);
+    //console.log(orders);
   }, []);
 
   return (
