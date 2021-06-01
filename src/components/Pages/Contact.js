@@ -23,7 +23,7 @@ export default function Contact() {
 
     // https://giant-ensambles.herokuapp.com/payment
 
-    return fetch(`http://localhost:5000/payment`, {
+    return fetch(`https://giant-ensambles.herokuapp.com/payment`, {
       method: 'POST',
       headers,
       body: JSON.stringify(body),
@@ -49,6 +49,4 @@ export default function Contact() {
       <Button>Dame muchos dineros</Button>
     </StripeCheckout>
   );
-
 }
-
