@@ -34,29 +34,29 @@ export default function Pedidos() {
                 <List>
                   <List.Item>
                     <List.Header>Cliente</List.Header>
-                    {order.shippingInfo.name}
+                    {order.cliente}
                   </List.Item>
                   <List.Item>
                     <List.Header>Correo</List.Header>
-                    {order.customerDetails.email}
+                    {order.email}
                   </List.Item>
                   <List.Item>
-                    <List.Header>Total</List.Header>${order.amountTotal / 100}
+                    <List.Header>Total</List.Header>${order.total}
                   </List.Item>
                 </List>
               </Grid.Column>
               <List>
                 <List.Item>
                   <List.Header>Ciudad</List.Header>
-                  {order.shippingInfo.address.city}
+                  {order.ciudad}
                 </List.Item>
                 <List.Item>
                   <List.Header>Direccion</List.Header>
-                  {order.shippingInfo.address.line1}
+                  {order.direccion}
                 </List.Item>
                 <List.Item>
                   <List.Header>Codigo postal</List.Header>
-                  {order.shippingInfo.address.postal_code}
+                  {order.cp}
                 </List.Item>
               </List>
             </Grid.Row>

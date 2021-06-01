@@ -1,16 +1,19 @@
 import React, { useContext } from 'react';
 import { Button, Label, Table } from 'semantic-ui-react';
+import StripeCheckout from 'react-stripe-checkout';
 import logo from '../Navbar/giant.png';
+
+import history from '../../history';
 
 import html2pdf from 'html2pdf.js';
 import { EnsambleContext } from './EnsambleContext';
 
-import { loadStripe } from '@stripe/stripe-js';
+//import { loadStripe } from '@stripe/stripe-js';
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
-const stripePromise = loadStripe(
-  'pk_test_51IujvAIqOpiH1XDDENLMzBB13hlBmoIdSsfU9fRAqGl3vbRtXRSp6wUzSCbtzot9CLdrEpRUwzJueomQQrutCaX00008spOYCP'
-);
+// const stripePromise = loadStripe(
+//   'pk_test_51IujvAIqOpiH1XDDENLMzBB13hlBmoIdSsfU9fRAqGl3vbRtXRSp6wUzSCbtzot9CLdrEpRUwzJueomQQrutCaX00008spOYCP'
+// );
 
 export default function Resumen() {
   const { ensamble } = useContext(EnsambleContext);
@@ -30,9 +33,7 @@ export default function Resumen() {
     return today;
   };
 
-  const handlePay = async (event) => {
-    const stripe = await stripePromise;
-
+  const makePayment = (token) => {
     let data = {
       equipo: [],
     };
@@ -43,32 +44,29 @@ export default function Resumen() {
       }
     });
 
-    // Call your backend to create the Checkout Session
-    const response = await fetch(
-      'https://giant-ensambles.herokuapp.com/checkout',
-      {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    );
+    const body = {
+      token,
+      data,
+    };
 
-    const session = await response.json();
+    const headers = {
+      'Content-Type': 'application/json',
+    };
 
-    // When the customer clicks on the button, redirect them to Checkout.
-    const result = await stripe.redirectToCheckout({
-      sessionId: session.id,
-    });
+    // https://giant-ensambles.herokuapp.com/payment
 
-    console.log(session);
-
-    if (result.error) {
-      // If `redirectToCheckout` fails due to a browser or network
-      // error, display the localized error message to your customer
-      // using `result.error.message`.
-    }
+    return fetch(`http://localhost:5000/payment`, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(body),
+    })
+      .then((response) => {
+        console.log('RESPONSE ', response);
+        const { status } = response;
+        console.log('STATUS ', status);
+        history.push('/finalizada');
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -114,9 +112,19 @@ export default function Resumen() {
           Descargar PDF
         </Button>
 
-        <Button size='large' secondary onClick={handlePay}>
-          Pagar
-        </Button>
+        <StripeCheckout
+          stripeKey='pk_test_51IujvAIqOpiH1XDDENLMzBB13hlBmoIdSsfU9fRAqGl3vbRtXRSp6wUzSCbtzot9CLdrEpRUwzJueomQQrutCaX00008spOYCP'
+          token={makePayment}
+          name='Ensamble a tu medida'
+          amount={precioTotal * 100}
+          currency='MXN'
+          shippingAddress
+          bitcoin
+        >
+          <Button size='large' secondary>
+            Pagar
+          </Button>
+        </StripeCheckout>
       </div>
     </>
   );
