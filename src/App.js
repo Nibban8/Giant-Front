@@ -9,7 +9,7 @@ import Finalizada from './components/Pages/Finalizada';
 import { AuthProvider } from './AuthContext';
 import { Router, Route, Redirect } from 'react-router';
 import history from './history';
-import Dashboard from './Dashboard';
+import Dashboard from './components/Dashboard/Dashboard';
 import Login from './Login';
 import PrivateRoute from './PrivateRoute';
 import Ensamble from './components/Ensamble/Ensamble';

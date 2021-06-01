@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { List, Segment, Grid } from 'semantic-ui-react';
-import { db } from './firebase';
+import { db } from '../../firebase';
+
+import './styles.css';
 
 export default function Pedidos() {
   const [orders, setOrders] = useState([]);
@@ -23,7 +25,7 @@ export default function Pedidos() {
   return (
     <div>
       {orders.map((order) => (
-        <Segment padded='very'>
+        <Segment padded>
           <h5>ID :{order.id}</h5>
 
           <Grid columns={2}>

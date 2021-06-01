@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Input, List, Segment, Button, Icon, Label } from 'semantic-ui-react';
-import { db } from './firebase';
+import { List, Segment, Button, Icon, Label } from 'semantic-ui-react';
+import { db } from '../../firebase';
+import ListPart from './ListPart';
+
+import './styles.css';
+
 export default function Inventario() {
   const [partes, setPartes] = useState([]);
 
@@ -62,24 +66,7 @@ export default function Inventario() {
             );
 
             if (edit) {
-              lista = (
-                <List.Item>
-                  <List.Content floated='right'>
-                    Cantidad: <Input placeholder={parte.cantidad} />{' '}
-                    <Button icon>
-                      <Icon name='save' />
-                    </Button>
-                  </List.Content>
-                  <List.Content floated='right'>
-                    Precio : <Input placeholder={parte.precio} />{' '}
-                    <Button icon>
-                      <Icon name='save' />
-                    </Button>
-                  </List.Content>
-
-                  <List.Content>{parte.nombre}</List.Content>
-                </List.Item>
-              );
+              lista = <ListPart parte={parte} />;
             }
 
             return lista;
