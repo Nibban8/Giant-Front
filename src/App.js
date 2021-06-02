@@ -32,8 +32,7 @@ const App = () => {
           <Navbar />
 
           <div className='main'>
-            <Route path='/' exact component={() => <Redirect to='/inicio' />} />
-            <Route path='/inicio' exact component={Home} />
+            <Route path='/' exact component={Home} />
             <Route path='/agregar' exact component={Agregar} />
             <Route path='/contacto' exact component={Contact} />
             <Route path='/ensamble' exact component={Ensamble} />
