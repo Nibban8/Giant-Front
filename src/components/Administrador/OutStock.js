@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { List, Segment } from 'semantic-ui-react';
+import { Button, List, Segment } from 'semantic-ui-react';
 import { db } from '../../firebase';
 export default function Inventario() {
 	const [partes, setPartes] = useState([]);
@@ -34,6 +34,9 @@ export default function Inventario() {
 					})}
 				</List>
 			</Segment>
+			<Button as='a' href='tel:123-456-789' primary>
+				LLAMAR PROVEDOR
+			</Button>
 		</>
 	);
 }
