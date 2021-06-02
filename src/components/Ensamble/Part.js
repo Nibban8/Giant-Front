@@ -62,7 +62,7 @@ const Part = ({ part, selected, stock }) => {
 				$ {part.precio}
 			</Card.Content>
 
-			{stock ? (
+			{stock !== '0' ? (
 				selected ? (
 					<Button style={{ marginTop: 'auto' }} secondary>
 						SELECCIONADO
