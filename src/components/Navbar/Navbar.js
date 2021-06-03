@@ -8,12 +8,12 @@ export default function Navbar() {
 		<nav className='navbar'>
 			<ul className='navbar-nav'>
 				<li className='logo'>
-					<Link to='/inicio'>
+					<Link to='/'>
 						<img alt='logo' src={logo} />
 					</Link>
 				</li>
 				<li className='nav-item'>
-					<Link to={'/inicio'}>
+					<Link to={'/'}>
 						<span className='nav-link'>
 							<svg
 								aria-hidden='true'
