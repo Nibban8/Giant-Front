@@ -6,7 +6,7 @@ import Contact from './components/Pages/Contact';
 import Agregar from './components/Pages/Agregar';
 import Finalizada from './components/Pages/Finalizada';
 import { AuthProvider } from './AuthContext';
-import { Router, Route, Redirect } from 'react-router';
+import { Router, Route } from 'react-router';
 import history from './history';
 //import Dashboard from './components/Dashboard/Dashboard';
 import Admin from './components/Pages/Admin';
