@@ -11,7 +11,7 @@ const ModalExampleScrollingContent = () => {
 			onClose={() => setOpen(false)}
 			onOpen={() => setOpen(true)}
 			trigger={
-				<Button floated='right' icon>
+				<Button icon size='big' primary>
 					<Icon name='bell' />
 				</Button>
 			}

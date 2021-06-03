@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 export default function Dashboard() {
 	return (
 		<Fragment>
-			<Alertas />
 			<Grid
 				style={{
 					position: 'fixed',
